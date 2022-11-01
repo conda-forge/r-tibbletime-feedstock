@@ -1,4 +1,4 @@
-{% set version = '0.1.6' %}
+{% set version = "0.1.7" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,11 +10,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/tibbletime_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/tibbletime/tibbletime_{{ version }}.tar.gz
-  sha256: abae5587d0452a1fb1c78003822da6be1df0fb813a285672cc7d76e92f81d75d
+  sha256: ec2f6adcaf3caed766df9e1b55955b222816afc3534fbaba87f720e03e564a50
 
 build:
-  merge_build_host: True  # [win]
-  number: 1
+  merge_build_host: true  # [win]
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
@@ -70,14 +70,11 @@ test:
 about:
   home: https://github.com/business-science/tibbletime
   license: MIT
-  summary: 'Built on top of the ''tibble'' package, ''tibbletime'' is an extension that allows
-    for the creation of time aware tibbles. Some immediate advantages of this include:
-    the ability to perform time-based subsetting on tibbles, quickly summarising and
-    aggregating results by time periods, and creating columns that can be used as ''dplyr''
-    time-based groups.'
+  summary: "Built on top of the 'tibble' package, 'tibbletime' is an extension that allows for the creation of time aware tibbles. Some immediate advantages of this include: the ability to perform time-based subsetting on tibbles, quickly summarising and aggregating results by time periods, and creating columns that can\
+    \ be used as 'dplyr' time-based groups."
   license_family: MIT
   license_file:
-    - '{{ environ["PREFIX"] }}/lib/R/share/licenses/MIT'
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/MIT
     - LICENSE
 
 extra:
