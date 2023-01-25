@@ -1,4 +1,4 @@
-{% set version = "0.1.7" %}
+{% set version = "0.1.8" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,7 +10,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/tibbletime_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/tibbletime/tibbletime_{{ version }}.tar.gz
-  sha256: ec2f6adcaf3caed766df9e1b55955b222816afc3534fbaba87f720e03e564a50
+  sha256: d6f1c21cc4f6e01f9b806c9543ce4ee5a94ed45020917cc6f4257176e31e46a1
 
 build:
   merge_build_host: true  # [win]
