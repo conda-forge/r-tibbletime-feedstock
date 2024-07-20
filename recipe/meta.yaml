@@ -1,6 +1,5 @@
 {% set version = "0.1.8" %}
 {% set posix = 'm2-' if win else '' %}
-{% set native = 'm2w64-' if win else '' %}
 
 package:
   name: r-tibbletime
@@ -13,8 +12,7 @@ source:
   sha256: d6f1c21cc4f6e01f9b806c9543ce4ee5a94ed45020917cc6f4257176e31e46a1
 
 build:
-  merge_build_host: true  # [win]
-  number: 1
+  number: 2
   rpaths:
     - lib/R/lib/
     - lib/
@@ -22,7 +20,9 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}              # [not win]
+    - {{ stdlib("c") }}                # [not win]
     - {{ compiler('m2w64_c') }}        # [win]
+    - {{ stdlib("m2w64_c") }}          # [win]
     - {{ compiler('cxx') }}            # [not win]
     - {{ compiler('m2w64_cxx') }}      # [win]
     - {{ posix }}filesystem        # [win]
@@ -47,7 +47,6 @@ requirements:
     - r-zoo >=1.8_0
   run:
     - r-base
-    - {{ native }}gcc-libs         # [win]
     - r-rcpp >=0.12.7
     - r-assertthat >=0.2.0
     - r-dplyr >=0.7.4
